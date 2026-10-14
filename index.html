@@ -433,7 +433,7 @@ hitung(); setInterval(hitung, 1000);
   const cek = f => new Promise(ok => { const im = new Image(); im.onload = () => ok(f); im.onerror = () => ok(null); im.src = f; });
   Promise.all(DATA.galeri.map(cek)).then(hasil => {
     const ada = hasil.filter(Boolean);
-    const foto = ada.length ? ada : [foto1,foto2,foto3,foto4,foto5].map(() => null);
+    const foto = ada.length ? ada : [1,2,3,4,5].map(() => null);
     const jalur = $('jalur'), titik = $('titik');
     jalur.innerHTML = foto.map((f, i) => `<div class="slide"><div class="bingkai">${
       f ? `<img src="${f}" alt="Foto ${i+1} ${P.panggilan} dan ${W.panggilan}" loading="lazy">`
