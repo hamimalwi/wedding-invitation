@@ -431,9 +431,9 @@ hitung(); setInterval(hitung, 1000);
 // Slide foto: hanya foto yang file-nya ada yang ditampilkan
 (function(){
   const cek = f => new Promise(ok => { const im = new Image(); im.onload = () => ok(f); im.onerror = () => ok(null); im.src = f; });
-  Promise.all(DATA.foto.map(cek)).then(hasil => {
+  Promise.all(DATA.galeri.map(cek)).then(hasil => {
     const ada = hasil.filter(Boolean);
-    const foto = ada.length ? ada : [1,2,3,4,5].map(() => null);
+    const foto = ada.length ? ada : [foto1.jpg,foto2.jpg,foto3.jpg,foto4.jpg,foto5.jpg].map(() => null);
     const jalur = $('jalur'), titik = $('titik');
     jalur.innerHTML = foto.map((f, i) => `<div class="slide"><div class="bingkai">${
       f ? `<img src="${f}" alt="Foto ${i+1} ${P.panggilan} dan ${W.panggilan}" loading="lazy">`
