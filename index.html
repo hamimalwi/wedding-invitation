@@ -179,7 +179,7 @@ const DATA = {
   whatsapp: "6282183511627",  // nomor WhatsApp (dipakai jika sheetUrl kosong), format 62 tanpa tanda +
   // ---- FOTO & MEDIA: unggah file dengan nama persis seperti di bawah (satu folder dengan index.html) ----
   fotoPasangan: "pasangan.jpg",                       // foto berdua di bingkai emas (potret, tegak)
-  galeri: ["foto1.jpg","foto2.jpg","foto3.jpg","foto4.jpg","foto5.jpg",], // yang file-nya ada akan tampil
+  galeri: ["foto1","foto2","foto3","foto4","foto5",], // yang file-nya ada akan tampil
   musik: "lagu.mp3",                                       // lagu latar (tombol musik hilang jika file tidak ada)
   video: "",                                               // "video.mp4" atau tautan YouTube; kosongkan jika tidak perlu
   // ---- ELEMEN HIASAN: png transparan untuk benda, jpg untuk latar. Jika file tidak ada, dipakai gambar bawaan ----
@@ -433,7 +433,7 @@ hitung(); setInterval(hitung, 1000);
   const cek = f => new Promise(ok => { const im = new Image(); im.onload = () => ok(f); im.onerror = () => ok(null); im.src = f; });
   Promise.all(DATA.galeri.map(cek)).then(hasil => {
     const ada = hasil.filter(Boolean);
-    const foto = ada.length ? ada : [foto1.jpg,foto2.jpg,foto3.jpg,foto4.jpg,foto5.jpg].map(() => null);
+    const foto = ada.length ? ada : [foto1,foto2,foto3,foto4,foto5].map(() => null);
     const jalur = $('jalur'), titik = $('titik');
     jalur.innerHTML = foto.map((f, i) => `<div class="slide"><div class="bingkai">${
       f ? `<img src="${f}" alt="Foto ${i+1} ${P.panggilan} dan ${W.panggilan}" loading="lazy">`
