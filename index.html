@@ -39,7 +39,7 @@ h2::after{content:"";display:block;width:70px;height:2px;margin:.8rem auto 0;bac
 /* Sampul */
 #sampul{position:fixed;inset:0;z-index:10}
 #sampul{--u:min(100vw,50vh)}
-.adegan{position:absolute;inset:0;background:linear-gradient(#F3EAD0,#E9D8AE 60%,#D8C08A);overflow:hidden}
+.adegan{position:absolute;inset:0;background:linear-gradient(#990000,#E9D8AE 60%,#D8C08A);overflow:hidden}
 .tanah{position:absolute;left:0;right:0;bottom:0;height:calc(var(--u)*.54);background:repeating-linear-gradient(#D9C28D 0 44px,#C9B27B 44px 45px)}
 .skena{position:absolute;left:50%;bottom:0;width:var(--u);height:calc(var(--u)*2);translate:-50% 0}
 .skena>*{position:absolute}
@@ -178,8 +178,8 @@ const DATA = {
   sheetUrl: "",               // tempel alamat Web App Google Apps Script (berakhiran /exec). Jika kosong, konfirmasi dikirim lewat WhatsApp
   whatsapp: "6281234567890",  // nomor WhatsApp (dipakai jika sheetUrl kosong), format 62 tanpa tanda +
   // ---- FOTO & MEDIA: unggah file dengan nama persis seperti di bawah (satu folder dengan index.html) ----
-  fotoPasangan: "foto-pasangan.jpg",                       // foto berdua di bingkai emas (potret, tegak)
-  galeri: ["galeri-1.jpg","galeri-2.jpg","galeri-3.jpg","galeri-4.jpg","galeri-5.jpg","galeri-6.jpg","galeri-7.jpg","galeri-8.jpg"], // yang file-nya ada akan tampil
+  fotoPasangan: "pasangan.jepg",                       // foto berdua di bingkai emas (potret, tegak)
+  galeri: ["galeri1.jpeg","galeri2.jpeg","galeri3.jpeg","galeri4.jepg","galeri5.jpeg","galeri6.jpeg","galeri7.jpeg","galeri8.jpeg"], // yang file-nya ada akan tampil
   musik: "akhir.mp3",                                       // lagu latar (tombol musik hilang jika file tidak ada)
   video: "",                                               // "video.mp4" atau tautan YouTube; kosongkan jika tidak perlu
   // ---- ELEMEN HIASAN: png transparan untuk benda, jpg untuk latar. Jika file tidak ada, dipakai gambar bawaan ----
