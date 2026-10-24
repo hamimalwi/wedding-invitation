@@ -85,10 +85,7 @@ section{padding:3.5rem 1.5rem;position:relative}
 #hitung b{font:400 1.8rem var(--tulis);color:var(--kuning)}
 #hitung span{font-size:.7rem;opacity:.9}
 
-/* Dress code, ayat */
-.warna{display:flex;gap:1.4rem;justify-content:center;margin:1.2rem 0 1.6rem}
-.warna i{display:block;width:58px;height:58px;border-radius:50%;border:2px solid var(--krem);margin:0 auto .3rem}
-.warna span{font-size:.85rem}
+/* Ayat */
 .ayat{font-style:italic;max-width:46ch;margin:0 auto}
 .ayat cite{display:block;margin-top:.6rem;font-style:normal;font-size:.9rem;color:var(--kuning)}
 
@@ -143,30 +140,28 @@ form .tombol{width:100%;margin-top:1.5rem}
 const DATA = {
   mempelaiPria:  { nama:"Hamim Alwi", panggilan:"Alwi", ortu:"Putra dari Bpk. Muhklasin & Ibu Siti", instagram:"" },
   mempelaiWanita:{ nama:"MA Inne Mirtanturi", panggilan:"Inne", ortu:"Putri dari Bpk. Ediyanto & Ibu Wiwit", instagram:"" },
-  akad:     { tanggal:"2026-06-12T08:00:00+07:00", jam:"08.00 WIB – selesai", tempat:"Kediaman Bpk Ediyanto",
+  akad:     { tanggal:"2026-12-06T08:00:00+07:00", jam:"08.00 WIB – selesai", tempat:"Kediaman Bpk. Ediyanto",
               alamat:"Bandung 2, Mataram Udik, Bandar Mataram, Lampung Tengah", peta:"https://maps.app.goo.gl/bKi7yJtdV4ZQ4xZL8?g_st=iw" },
-  resepsi:  { tanggal:"2026-10-12T11:00:00+07:00", jam:"08.00 WIB – selesai", tempat:"Kediaman Bpk Muhklasin",
+  resepsi:  { tanggal:"2026-12-10T08:00:00+07:00", jam:"08.00 WIB – selesai", tempat:"Kediaman Bpk. Muhklasin",
               alamat:"Banjar Karya, Banjar Agung, Seputih Mataram, Lampung Tengah", peta:"https://maps.app.goo.gl/4bie7bSQTy99A44T9?g_st=iw" },
-  dresscode: [ {nama:"Putih", warna:"#FFFFFF"}, {nama:"Krem", warna:"#EAD9B5"}, {nama:"Coklat", warna:"#4B2814"} ],  // [] jika tidak perlu
   ayat: { teks:"Di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang.", sumber:"QS. Ar-Rum: 21" },
 
   // ---- FOTO: unggah file dengan nama persis seperti ini (satu folder dengan index.html). Yang belum ada tampil sebagai kotak penanda ----
   foto: {
-    sampul:          "galeri2.jpeg",            // foto penuh layar di sampul (potret/tegak)
-    pembuka:         "galeri1.jpeg",           // foto lebar setelah sampul dibuka
-    pengantinWanita: "pasangan.jpeg",
-    pengantinPria:   "pasangan.jpeg",
+    sampul:          "poto2.jpeg",            // foto penuh layar di sampul (potret/tegak)
+    pembuka:         "galeri2.jpeg",           // foto lebar setelah sampul dibuka
+    pengantinWanita: "inne.jpeg",
+    pengantinPria:   "alwi.jpeg",
     kolase1:         "galeri3.jpeg",          // dua foto berdampingan di atas bagian acara
     kolase2:         "galeri4.jpeg",
-    dresscode:       "foto-dresscode.jpg",
-    galeriUtama:     "galeri5.jpeg",      // foto besar dengan tulisan "Our Gallery"
-    penutup:         "foto-penutup.jpg"
+    galeriUtama:     "galeri1.jpeg",      // foto besar dengan tulisan "Our Gallery"
+    penutup:         "poto1.jpeg"
   },
   galeri: ["galeri-1.jpg","galeri-2.jpg","galeri-3.jpg","galeri-4.jpg","galeri-5.jpg","galeri-6.jpg","galeri-7.jpg","galeri-8.jpg"], // yang file-nya ada akan tampil
   musik: "akhir.mp3",      // tombol musik hilang jika file tidak ada
-  video: "",              // "video.mp4" atau tautan YouTube; kosongkan jika tidak perlu
+  video: "video.mp4",     // nama file video, atau tautan YouTube (mis. "https://youtu.be/xxxxxxxxxxx")
   sheetUrl: "https://script.google.com/macros/s/AKfycbzp5BIMDciNtOJkwng2f3kX14aKH3HpqwzeeUihvW38r7ZT9mfPldcnL1ugGPOPz8vGiQ/exec",           // alamat Web App Google Apps Script (berakhiran /exec). Jika kosong, konfirmasi dikirim lewat WhatsApp
-  whatsapp: "6282183511627",
+  whatsapp: "6281234567890",
   rekening: [             // ganti dengan rekening asli (hapus baris jika tidak perlu)
     { bank:"Bank BRI", nomor:"770901037265539", nama:"Hamim Alwi" },
     { bank:"Bank BCA", nomor:"0987654321", nama:"MA Inne Mirtanturi" }
@@ -235,12 +230,8 @@ const DATA = {
     </div>
   </section>
 
-  <section id="dresscode">
-    <div class="isi">
-      <h2 class="judul">Dress Code</h2>
-      <div class="warna" id="warna"></div>
-      <div class="foto r169" data-foto="dresscode" data-label="Foto dress code"></div>
-    </div>
+  <section id="video">
+    <div class="isi"><h2 class="judul">Video</h2><div class="kotak-video" id="kotakVideo"></div></div>
   </section>
 
   <section id="ayat">
@@ -261,10 +252,6 @@ const DATA = {
       <div class="titik" id="titik"></div>
       <p style="margin-top:1.4rem;font-style:italic;font-size:.95rem">setiap foto bercerita tentang cinta, tawa, dan janji untuk selamanya.</p>
     </div>
-  </section>
-
-  <section id="video">
-    <div class="isi"><h2 class="judul">Video</h2><div class="kotak-video" id="kotakVideo"></div></div>
   </section>
 
   <section id="hadiah">
@@ -359,10 +346,6 @@ hitung(); setInterval(hitung, 1000);
   $('btnKalender').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
 })();
 
-// Dress code
-if (!DATA.dresscode.length) $('dresscode').remove();
-else $('warna').innerHTML = DATA.dresscode.map(w => `<div><i style="background:${w.warna}"></i><span>${w.nama}</span></div>`).join('');
-
 // Slide foto: hanya foto yang file-nya ada yang ditampilkan
 (function(){
   const cek = f => new Promise(ok => { const im = new Image(); im.onload = () => ok(f); im.onerror = () => ok(null); im.src = f; });
@@ -392,14 +375,20 @@ else $('warna').innerHTML = DATA.dresscode.map(w => `<div><i style="background:$
   });
 })();
 
-// Video
+// Video: file .mp4 atau tautan YouTube; jika file tidak ada, tampil kotak penanda
 (function(){
-  const v = DATA.video;
-  if (!v) { $('video').remove(); return; }
+  const v = DATA.video, kotak = $('kotakVideo');
+  const kosong = () => { kotak.innerHTML = `<div class="kosong" style="border:0"><div>${IKON}Video<code>${v || 'video.mp4 atau tautan YouTube'}</code></div></div>`; };
+  if (!v) return kosong();
   const yt = v.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
-  $('kotakVideo').innerHTML = yt
-    ? `<iframe src="https://www.youtube-nocookie.com/embed/${yt[1]}" title="Video ${P.panggilan} dan ${W.panggilan}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
-    : `<video src="${v}" controls playsinline preload="metadata"></video>`;
+  if (yt) {
+    kotak.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt[1]}" title="Video ${P.panggilan} dan ${W.panggilan}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+  } else {
+    const el = document.createElement('video');
+    el.controls = true; el.playsInline = true; el.preload = 'metadata';
+    el.addEventListener('error', kosong); el.src = v;
+    kotak.replaceChildren(el);
+  }
 })();
 
 // Musik latar (mulai saat tamu menekan "Buka Undangan"; tombol hanya muncul jika file ada)
